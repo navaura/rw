@@ -317,6 +317,65 @@
             background: #f3f4f6;
         }
 
+        .demo-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
         footer {
             padding: 3rem 4rem;
             border-top: 1px solid #e5e7eb;
@@ -600,7 +659,20 @@
         <div class="cta-content">
             <h2>Ready to streamline operations?</h2>
             <p>See how ResponseWorks provides operational clarity and control for plumbing businesses</p>
-            <button class="btn-large btn-white">Schedule Demo</button>
+            
+            <form id="demoForm" class="demo-form">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile number (optional)">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your business and demo requirements" required></textarea>
+                </div>
+                <button type="submit" class="btn-large btn-white">Schedule Demo</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
         </div>
     </section>
 
@@ -646,6 +718,51 @@
         const visualItems = document.querySelectorAll('.visual-item');
         visualItems.forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Form submission
+        document.getElementById('demoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+            
+            const formData = {
+                email: document.getElementById('email').value,
+                mobile: document.getElementById('mobile').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                const response = await fetch('https://mailend.responseworks.in/api/demo-request', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    formMessage.textContent = 'Thank you! We\'ll be in touch shortly.';
+                    formMessage.className = 'form-message success';
+                    e.target.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                formMessage.textContent = 'Something went wrong. Please try again or email us directly.';
+                formMessage.className = 'form-message error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
     </script>
 </body>
