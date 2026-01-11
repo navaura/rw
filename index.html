@@ -28,6 +28,12 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1.25rem 4rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
 
         .logo {
@@ -35,6 +41,12 @@
             font-weight: 600;
             color: #000000;
             letter-spacing: -0.02em;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
         }
 
         nav {
@@ -49,10 +61,28 @@
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.2s;
+            position: relative;
+            cursor: pointer;
         }
 
         nav a:hover {
             color: #000000;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
         }
 
         .btn-primary {
@@ -64,11 +94,17 @@
             cursor: pointer;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .btn-primary:hover {
             background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
         }
 
         .hero {
@@ -122,6 +158,12 @@
 
         .btn-blue:hover {
             background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-blue:active {
+            transform: translateY(0);
         }
 
         .btn-outline {
@@ -132,6 +174,13 @@
 
         .btn-outline:hover {
             border-color: #000000;
+            background: #f9fafb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline:active {
+            transform: translateY(0);
         }
 
         .hero-visual {
@@ -161,6 +210,7 @@
         .visual-item:hover {
             border-color: #2563eb;
             transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
         }
 
         .visual-icon {
@@ -218,6 +268,7 @@
         .feature-card:hover {
             border-color: #2563eb;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transform: translateY(-4px);
         }
 
         .feature-number {
@@ -315,6 +366,12 @@
 
         .btn-white:hover {
             background: #f3f4f6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-white:active {
+            transform: translateY(0);
         }
 
         .demo-form {
@@ -411,6 +468,22 @@
             letter-spacing: 0.05em;
         }
 
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #000000;
+            transition: all 0.3s;
+        }
+
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -458,6 +531,10 @@
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
             .hero-buttons {
                 flex-direction: column;
             }
@@ -470,24 +547,29 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">responseworks.in</div>
+    <header id="header">
+        <div class="logo" onclick="scrollToTop()">responseworks.in</div>
         <nav>
-            <a href="#features">Features</a>
-            <a href="#platform">Platform</a>
-            <a href="#contact">Contact</a>
-            <button class="btn-primary">Get Started</button>
+            <a href="#features" onclick="smoothScrollTo(event, 'features')">Features</a>
+            <a href="#platform" onclick="smoothScrollTo(event, 'platform')">Platform</a>
+            <a href="#contact" onclick="smoothScrollTo(event, 'contact')">Contact</a>
+            <button class="btn-primary" onclick="smoothScrollTo(event, 'contact')">Get Started</button>
         </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-grid">
             <div class="hero-content">
                 <h1>Complete operations platform for plumbing businesses</h1>
                 <p>Centralized software to manage customers, jobs, technicians, and branches. Purpose-built for single-location and multi-branch plumbing companies.</p>
                 <div class="hero-buttons">
-                    <button class="btn-large btn-blue">Request Demo</button>
-                    <button class="btn-large btn-outline">View Platform</button>
+                    <button class="btn-large btn-blue" onclick="smoothScrollTo(event, 'contact')">Request Demo</button>
+                    <button class="btn-large btn-outline" onclick="smoothScrollTo(event, 'platform')">View Platform</button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -677,22 +759,79 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 responseworks.in — Professional plumbing business management software</p>
+        <p>&copy; 2026 responseworks.in – Professional plumbing business management software</p>
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Smooth scroll function
+        function smoothScrollTo(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                updateActiveNavLink(targetId);
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            updateActiveNavLink('home');
+        }
+
+        // Update active navigation link
+        function updateActiveNavLink(activeId) {
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + activeId) {
+                    link.classList.add('active');
                 }
             });
+        }
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
         });
 
-        // Intersection observer for fade-in
+        // Intersection observer for active navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateActiveNavLink(entry.target.id);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-100px 0px -66%'
+        });
+
+        sections.forEach(section => navObserver.observe(section));
+
+        // Intersection observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -720,13 +859,61 @@
             item.style.animationDelay = `${index * 0.1}s`;
         });
 
-        // Form submission
+        // Add character counter for message field
+        const messageField = document.getElementById('message');
+        const messageGroup = messageField.closest('.form-group');
+
+        // Create character counter element
+        const charCounter = document.createElement('div');
+        charCounter.style.cssText = 'font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; text-align: right;';
+        messageGroup.appendChild(charCounter);
+
+        // Update character count
+        messageField.addEventListener('input', () => {
+            const length = messageField.value.trim().length;
+            const remaining = 1000 - length;
+            const minRequired = 10;
+            
+            if (length < minRequired) {
+                charCounter.textContent = `${length}/${minRequired} characters (minimum ${minRequired - length} more needed)`;
+                charCounter.style.color = '#ef4444';
+            } else if (remaining < 100) {
+                charCounter.textContent = `${length}/1000 characters (${remaining} remaining)`;
+                charCounter.style.color = '#fbbf24';
+            } else {
+                charCounter.textContent = `${length}/1000 characters`;
+                charCounter.style.color = 'rgba(255, 255, 255, 0.6)';
+            }
+        });
+
+        // Trigger initial count
+        messageField.dispatchEvent(new Event('input'));
+
+        // Form submission (API FUNCTIONALITY PRESERVED)
         document.getElementById('demoForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const formMessage = document.getElementById('formMessage');
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
+            
+            // Get trimmed values
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Client-side validation
+            if (message.length < 10) {
+                formMessage.textContent = `Message too short. You have ${message.length} characters, need at least 10 (${10 - message.length} more).`;
+                formMessage.className = 'form-message error';
+                return;
+            }
+            
+            if (message.length > 1000) {
+                formMessage.textContent = `Message too long. You have ${message.length} characters, maximum is 1000 (remove ${message.length - 1000}).`;
+                formMessage.className = 'form-message error';
+                return;
+            }
             
             // Disable button and show loading state
             submitBtn.disabled = true;
@@ -735,9 +922,9 @@
             formMessage.className = 'form-message';
             
             const formData = {
-                email: document.getElementById('email').value,
-                mobile: document.getElementById('mobile').value,
-                message: document.getElementById('message').value
+                email: email,
+                mobile: mobile || null,
+                message: message
             };
             
             try {
@@ -749,21 +936,40 @@
                     body: JSON.stringify(formData)
                 });
                 
+                const data = await response.json();
+                
                 if (response.ok) {
                     formMessage.textContent = 'Thank you! We\'ll be in touch shortly.';
-                    formMessage.className = 'form-message success';
-                    e.target.reset();
+                    formMessage.className = 'form-message success';e.target.reset();
+                messageField.dispatchEvent(new Event('input')); // Reset counter
+            } else {
+                // Handle validation errors with specific details
+                if (response.status === 422 && data.detail) {
+                    const errors = Array.isArray(data.detail) ? data.detail : [data.detail];
+                    const errorMessages = errors.map(err => {
+                        if (err.msg && err.msg.includes('Message must be at least')) {
+                            return `Message needs ${10 - message.length} more characters (currently ${message.length}/10)`;
+                        }
+                        if (err.msg && err.msg.includes('Invalid mobile')) {
+                            return 'Mobile number format is invalid. Use 10-15 digits, optionally starting with +';
+                        }
+                        return err.msg || 'Validation error';
+                    });
+                    formMessage.textContent = errorMessages.join('. ');
                 } else {
-                    throw new Error('Submission failed');
+                    formMessage.textContent = data.message || 'Submission failed. Please try again.';
                 }
-            } catch (error) {
-                formMessage.textContent = 'Something went wrong. Please try again or email us directly.';
                 formMessage.className = 'form-message error';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
             }
-        });
-    </script>
+        } catch (error) {
+            console.error('Error:', error);
+            formMessage.textContent = 'Network error. Please check your connection and try again.';
+            formMessage.className = 'form-message error';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+</script>
 </body>
 </html>
