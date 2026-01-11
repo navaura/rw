@@ -36,18 +36,22 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #000000;
-            letter-spacing: -0.02em;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
+.logo {
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+}
 
-        .logo:hover {
-            opacity: 0.7;
-        }
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
 
         nav {
             display: flex;
@@ -547,20 +551,22 @@
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="logo" onclick="scrollToTop()">responseworks.in</div>
-        <nav>
-            <a href="#features" onclick="smoothScrollTo(event, 'features')">Features</a>
-            <a href="#platform" onclick="smoothScrollTo(event, 'platform')">Platform</a>
-            <a href="#contact" onclick="smoothScrollTo(event, 'contact')">Contact</a>
-            <button class="btn-primary" onclick="smoothScrollTo(event, 'contact')">Get Started</button>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+<header id="header">
+    <div class="logo" onclick="scrollToTop()">
+        <img src="logoza.png" alt="ResponseWorks">
+    </div>
+    <nav>
+        <a href="#features" onclick="smoothScrollTo(event, 'features')">Features</a>
+        <a href="#platform" onclick="smoothScrollTo(event, 'platform')">Platform</a>
+        <a href="#contact" onclick="smoothScrollTo(event, 'contact')">Contact</a>
+        <button class="btn-primary" onclick="smoothScrollTo(event, 'contact')">Get Started</button>
+    </nav>
+    <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
 
     <section class="hero" id="home">
         <div class="hero-grid">
