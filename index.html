@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResponseWorks - Plumbing Business Management Software</title>
+    <title>ResponseWorks - Industry-Specific Business Operations Software</title>
     <style>
         * {
             margin: 0;
@@ -36,22 +36,22 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
 
-.logo {
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: flex;
-    align-items: center;
-}
+        .logo {
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+        }
 
-.logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
 
-.logo:hover {
-    opacity: 0.7;
-}
+        .logo:hover {
+            opacity: 0.7;
+        }
 
         nav {
             display: flex;
@@ -133,6 +133,13 @@
             color: #000000;
         }
 
+        .hero-content .subtitle {
+            font-size: 1.35rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
         .hero-content p {
             font-size: 1.15rem;
             color: #6b7280;
@@ -188,7 +195,7 @@
         }
 
         .hero-visual {
-            background: #f9fafb;
+            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
             border: 1px solid #e5e7eb;
             border-radius: 12px;
             padding: 3rem;
@@ -228,9 +235,83 @@
             font-weight: 500;
         }
 
-        .features-section {
+        .approach-section {
             padding: 6rem 4rem;
             background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .approach-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .approach-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #000000;
+        }
+
+        .approach-content .highlight {
+            font-size: 1.25rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .approach-content p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .approach-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .approach-box {
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .approach-box:hover {
+            border-color: #2563eb;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .approach-box-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-box h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .approach-box p {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .industries-section {
+            padding: 6rem 4rem;
+            background: #ffffff;
             border-top: 1px solid #e5e7eb;
         }
 
@@ -251,6 +332,105 @@
         .section-header p {
             font-size: 1.1rem;
             color: #6b7280;
+        }
+
+        .industry-categories {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+        }
+
+        .industry-category {
+            background: #f9fafb;
+            padding: 3rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-badge {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .category-badge.tier-2 {
+            background: #7c3aed;
+        }
+
+        .category-badge.tier-3 {
+            background: #059669;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .category-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .industry-item {
+            background: #ffffff;
+            padding: 1.25rem 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #374151;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .industry-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2563eb;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .industry-item:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            transform: translateX(8px);
+            padding-left: 2rem;
+        }
+
+        .industry-item:hover::before {
+            opacity: 1;
+        }
+
+        .features-section {
+            padding: 6rem 4rem;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
         }
 
         .features-grid {
@@ -295,45 +475,46 @@
             line-height: 1.6;
         }
 
-        .specs-section {
+        .capabilities-section {
             padding: 6rem 4rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .specs-grid {
+        .capabilities-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
+            gap: 2rem;
         }
 
-        .spec-column h3 {
-            font-size: 1.5rem;
+        .capability-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .capability-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .capability-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .capability-title {
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 2rem;
             color: #000000;
+            margin-bottom: 0.75rem;
         }
 
-        .spec-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .spec-item:last-child {
-            border-bottom: none;
-        }
-
-        .spec-title {
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .spec-description {
+        .capability-description {
             color: #6b7280;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
@@ -472,7 +653,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* Mobile menu toggle */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
@@ -494,13 +674,14 @@
                 gap: 3rem;
             }
 
-            .features-grid {
+            .features-grid,
+            .capabilities-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .specs-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .industry-grid,
+            .approach-boxes {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             header {
@@ -511,9 +692,11 @@
                 padding: 4rem 2rem 3rem;
             }
 
+            .industries-section,
             .features-section,
-            .specs-section,
-            .cta-section {
+            .capabilities-section,
+            .cta-section,
+            .approach-section {
                 padding: 4rem 2rem;
             }
         }
@@ -523,7 +706,10 @@
                 font-size: 2.5rem;
             }
 
-            .features-grid {
+            .features-grid,
+            .capabilities-grid,
+            .industry-grid,
+            .approach-boxes {
                 grid-template-columns: 1fr;
             }
 
@@ -556,8 +742,9 @@
         <img src="logoza.png" alt="ResponseWorks">
     </div>
     <nav>
+        <a href="#approach" onclick="smoothScrollTo(event, 'approach')">Our Approach</a>
+        <a href="#industries" onclick="smoothScrollTo(event, 'industries')">Industries</a>
         <a href="#features" onclick="smoothScrollTo(event, 'features')">Features</a>
-        <a href="#platform" onclick="smoothScrollTo(event, 'platform')">Platform</a>
         <a href="#contact" onclick="smoothScrollTo(event, 'contact')">Contact</a>
         <button class="btn-primary" onclick="smoothScrollTo(event, 'contact')">Get Started</button>
     </nav>
@@ -571,30 +758,31 @@
     <section class="hero" id="home">
         <div class="hero-grid">
             <div class="hero-content">
-                <h1>Complete operations platform for plumbing businesses</h1>
-                <p>Centralized software to manage customers, jobs, technicians, and branches. Purpose-built for single-location and multi-branch plumbing companies.</p>
+                <div class="subtitle">Industry-Specific SaaS Applications</div>
+                <h1>Built for Your Business, Not Adapted From Others</h1>
+                <p>We don't sell a one-size-fits-all platform. Each industry gets its own dedicated SaaS application, purpose-built with the workflows, terminology, and operational logic specific to that business type.</p>
                 <div class="hero-buttons">
-                    <button class="btn-large btn-blue" onclick="smoothScrollTo(event, 'contact')">Request Demo</button>
-                    <button class="btn-large btn-outline" onclick="smoothScrollTo(event, 'platform')">View Platform</button>
+                    <button class="btn-large btn-blue" onclick="smoothScrollTo(event, 'contact')">Schedule a Demo</button>
+                    <button class="btn-large btn-outline" onclick="smoothScrollTo(event, 'approach')">See Our Approach</button>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="visual-grid">
                     <div class="visual-item">
                         <div class="visual-icon">👥</div>
-                        <div class="visual-label">Customers</div>
+                        <div class="visual-label">Customer Management</div>
                     </div>
                     <div class="visual-item">
                         <div class="visual-icon">📋</div>
-                        <div class="visual-label">Jobs</div>
+                        <div class="visual-label">Job Tracking</div>
                     </div>
                     <div class="visual-item">
                         <div class="visual-icon">📅</div>
-                        <div class="visual-label">Schedule</div>
+                        <div class="visual-label">Scheduling</div>
                     </div>
                     <div class="visual-item">
                         <div class="visual-icon">🏢</div>
-                        <div class="visual-label">Branches</div>
+                        <div class="visual-label">Multi-Branch</div>
                     </div>
                     <div class="visual-item">
                         <div class="visual-icon">💳</div>
@@ -602,7 +790,7 @@
                     </div>
                     <div class="visual-item">
                         <div class="visual-icon">📊</div>
-                        <div class="visual-label">Reports</div>
+                        <div class="visual-label">Reporting</div>
                     </div>
                 </div>
             </div>
@@ -610,343 +798,437 @@
         
         <div class="metric-bar">
             <div class="metric">
-                <div class="metric-value">Single</div>
-                <div class="metric-label">Database</div>
+                <div class="metric-value">24+</div>
+                <div class="metric-label">Dedicated Applications</div>
             </div>
             <div class="metric">
-                <div class="metric-value">Multi</div>
-                <div class="metric-label">Branch Support</div>
+                <div class="metric-value">Industry</div>
+                <div class="metric-label">Specific Design</div>
             </div>
             <div class="metric">
-                <div class="metric-value">Cloud</div>
-                <div class="metric-label">Based Platform</div>
+                <div class="metric-value">Purpose</div>
+                <div class="metric-label">Built Solutions</div>
             </div>
             <div class="metric">
                 <div class="metric-value">Zero</div>
-                <div class="metric-label">Migration</div>
+                <div class="metric-label">Generic Templates</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach-section" id="approach">
+        <div class="approach-content">
+            <h2>We Built EACH SaaS App for EACH Industry</h2>
+            <p class="highlight">No generic platforms. No forced adaptation. No compromise.</p>
+            <p>Every industry has unique operational requirements, terminology, compliance needs, and workflows. Generic business software forces you to adapt your processes to fit their limitations. We do the opposite: we build the software to match your industry's exact needs.</p>
+            
+            <div class="approach-boxes">
+                <div class="approach-box">
+                    <div class="approach-box-icon">🎯</div>
+                    <h3>Industry-Specific Development</h3>
+                    <p>Each application is designed from the ground up for a specific industry. Plumbing software understands service calls and emergency dispatch. Dental software understands treatment plans and insurance verification.</p>
+                </div>
+                
+                <div class="approach-box">
+                    <div class="approach-box-icon">🔧</div>
+                    <h3>Native Workflows & Terminology</h3>
+                    <p>Your staff shouldn't need to translate their work into generic terms. Our applications speak your industry's language with workflows that match how your business actually operates.</p>
+                </div>
+                
+                <div class="approach-box">
+                    <div class="approach-box-icon">📈</div>
+                    <h3>Compliance & Standards Built-In</h3>
+                    <p>Industry regulations, reporting requirements, and compliance standards are embedded into each application. No expensive customization needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industries-section" id="industries">
+        <div class="section-header">
+            <h2>Dedicated Applications for 24+ Industries</h2>
+            <p>Each industry has its own complete, purpose-built SaaS application</p>
+        </div>
+        
+        <div class="industry-categories">
+            <div class="industry-category">
+                <div class="category-header">
+                    <span class="category-badge">Priority</span>
+                    <h3 class="category-title">High-Priority Service Industries</h3>
+                </div>
+                <p class="category-description">Field service businesses with emergency response, technician dispatch, inventory tracking, and mobile workforce management requirements.</p>
+                <div class="industry-grid">
+                    <div class="industry-item">Plumbing Services</div>
+                    <div class="industry-item">HVAC (Heating & Cooling)</div>
+                    <div class="industry-item">Electrical Services</div>
+                    <div class="industry-item">Roofing Contractors</div>
+                    <div class="industry-item">Pest Control Companies</div>
+                    <div class="industry-item">Water Damage & Restoration</div>
+                    <div class="industry-item">Garage Door Services</div>
+                    <div class="industry-item">Locksmith Services</div>
+                </div>
+            </div>
+
+            <div class="industry-category">
+                <div class="category-header">
+                    <span class="category-badge tier-2">Healthcare & Legal</span>
+                    <h3 class="category-title">Professional Services</h3>
+                </div>
+                <p class="category-description">Healthcare and legal practices requiring patient/client management, appointment scheduling, compliance documentation, and specialized billing workflows.</p>
+                <div class="industry-grid">
+                    <div class="industry-item">Dental Clinics (Private)</div>
+                    <div class="industry-item">Urgent Care Centers</div>
+                    <div class="industry-item">Physiotherapy Clinics</div>
+                    <div class="industry-item">Chiropractic Clinics</div>
+                    <div class="industry-item">Home Healthcare Agencies</div>
+                    <div class="industry-item">Personal Injury Law Firms</div>
+                    <div class="industry-item">Immigration Law Firms</div>
+                    <div class="industry-item">Criminal Defense Law Firms</div>
+                </div>
+            </div>
+
+            <div class="industry-category">
+                <div class="category-header">
+                    <span class="category-badge tier-3">Expansion</span>
+                    <h3 class="category-title">Additional Service Industries</h3>
+                </div>
+                <p class="category-description">Property, automotive, and facilities management businesses with location tracking, asset management, and service coordination needs.</p>
+                <div class="industry-grid">
+                    <div class="industry-item">Real Estate Agents & Teams</div>
+                    <div class="industry-item">Property Management</div>
+                    <div class="industry-item">Auto Repair Shops</div>
+                    <div class="industry-item">Towing Companies</div>
+                    <div class="industry-item">Mobile Mechanics</div>
+                    <div class="industry-item">Commercial Cleaning</div>
+                    <div class="industry-item">Home Cleaning Services</div>
+                    <div class="industry-item">Janitorial Companies</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="features-section" id="features">
         <div class="section-header">
-            <h2>Everything you need to operate efficiently</h2>
-            <p>Complete operational management in one platform</p>
+            <h2>Core Capabilities in Every Application</h2>
+            <p>While each industry app is unique, all share these foundational business management features</p>
         </div>
         
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-number">01</div>
-                <h3>Customer Management</h3>
-                <p>Secure database with complete service history, multiple properties, and payment tracking. Customers accessible across all branches.</p>
+                <h3>Customer & Property Management</h3>
+                <p>Centralized customer database with complete service history, multiple property tracking, and comprehensive payment records. Industry-specific fields and relationships built into each application.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">02</div>
-                <h3>Job & Service Tracking</h3>
-                <p>Quick job creation with clear lifecycle tracking. Permanent records maintained from scheduling through completion.</p>
+                <h3>Job Scheduling & Dispatch</h3>
+                <p>Branch-wise scheduling with real-time staff availability, workload visibility, and conflict prevention. Each industry's unique scheduling requirements and constraints are embedded in the system.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">03</div>
-                <h3>Scheduling & Operations</h3>
-                <p>Branch-wise scheduling with daily workload views, technician availability, and double-booking prevention.</p>
+                <h3>Field Staff Mobile Access</h3>
+                <p>Complete mobile platform for field workers to access job details, view customer history, update status, add notes and photos, and capture signatures on-site with industry-specific mobile workflows.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">04</div>
-                <h3>Technician Mobile Access</h3>
-                <p>Field technicians access jobs, view customer details, update status, add notes and photos, capture signatures.</p>
+                <h3>Automated Invoicing</h3>
+                <p>Instant invoice generation with SMS and email delivery. Support for industry-standard billing practices, payment methods, partial payments, and complete payment history tracking.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">05</div>
-                <h3>Invoicing & Payments</h3>
-                <p>Automatic invoice generation with SMS and email delivery. Support for cards, transfers, partial payments.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-number">06</div>
-                <h3>Branch Management</h3>
-                <p>Each branch manages staff, schedules, inventory, revenue while connected to company-wide data.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-number">07</div>
-                <h3>Inventory Management</h3>
-                <p>Track inventory at branch and technician levels. Record material usage per job with low-stock alerts.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-number">08</div>
-                <h3>Reports & Insights</h3>
-                <p>Clear visibility into revenue, performance, job completion, customer history, outstanding payments.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-number">09</div>
-                <h3>Security & Access Control</h3>
-                <p>Role-based access with activity logs. Staff see only relevant information with secure data storage.</p>
-            </div>
+                <h3>Multi-Branch Operations</h3>
+                <p>Each branch manages its own staff, schedules, and inventory while connected to company-wide customer data and centralized reporting. Perfect for franchise and multi-location operations.</p>
+</div>
+<div class="feature-card">
+            <div class="feature-number">06</div>
+            <h3>Inventory & Material Tracking</h3>
+            <p>Track inventory at branch and technician levels. Record material usage per job with automatic low-stock alerts and ordering workflows tailored to each industry's inventory needs.</p>
         </div>
-    </section>
 
-    <section class="specs-section" id="platform">
-        <div class="specs-grid">
-            <div class="spec-column">
-                <h3>Platform Capabilities</h3>
-                
-                <div class="spec-item">
-                    <div class="spec-title">Centralized Operations</div>
-                    <div class="spec-description">Single system for customers, jobs, technicians, branches, payments, and reporting.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Multi-Branch Architecture</div>
-                    <div class="spec-description">Unified customer database with centralized reporting across all locations.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Complete Service History</div>
-                    <div class="spec-description">Permanent job records, customer notes, and payment tracking accessible company-wide.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Scalable Infrastructure</div>
-                    <div class="spec-description">Add branches, technicians, and customers without restructuring or data migration.</div>
-                </div>
-            </div>
-
-            <div class="spec-column">
-                <h3>System Specifications</h3>
-                
-                <div class="spec-item">
-                    <div class="spec-title">Operational Focus</div>
-                    <div class="spec-description">Purpose-built for plumbing operations management, not accounting or field work replacement.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Access Control</div>
-                    <div class="spec-description">Role-based permissions ensure staff access only relevant information with full activity logging.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Payment Processing</div>
-                    <div class="spec-description">Integrated support for card payments, bank transfers, partial payments, full history tracking.</div>
-                </div>
-
-                <div class="spec-item">
-                    <div class="spec-title">Mobile Platform</div>
-                    <div class="spec-description">Full technician access via mobile devices for job management and customer interaction.</div>
-                </div>
-            </div>
+        <div class="feature-card">
+            <div class="feature-number">07</div>
+            <h3>Operational Reports & Insights</h3>
+            <p>Industry-specific KPIs and metrics that matter to your business. Clear visibility into revenue, performance, job completion rates, outstanding payments, and staff productivity.</p>
         </div>
-    </section>
 
-    <section class="cta-section" id="contact">
-        <div class="cta-content">
-            <h2>Ready to streamline operations?</h2>
-            <p>See how ResponseWorks provides operational clarity and control for plumbing businesses</p>
-            
-            <form id="demoForm" class="demo-form">
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email address" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile number (optional)">
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your business and demo requirements" required></textarea>
-                </div>
-                <button type="submit" class="btn-large btn-white">Schedule Demo</button>
-                <div id="formMessage" class="form-message"></div>
-            </form>
+        <div class="feature-card">
+            <div class="feature-number">08</div>
+            <h3>Security & Access Control</h3>
+            <p>Role-based permissions ensure staff access only relevant information. Complete activity logs and secure data storage with company-level isolation meeting industry compliance requirements.</p>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 responseworks.in – Professional plumbing business management software</p>
-    </footer>
+        <div class="feature-card">
+            <div class="feature-number">09</div>
+            <h3>Service History & Records</h3>
+            <p>Permanent records of all jobs, customer interactions, service notes, and transactions maintained indefinitely for compliance, audit trails, and reference with industry-specific documentation requirements.</p>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // Smooth scroll function
-        function smoothScrollTo(event, targetId) {
-            event.preventDefault();
-            const target = document.getElementById(targetId);
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+<section class="capabilities-section" id="platform">
+    <div class="section-header">
+        <h2>Technical Platform Capabilities</h2>
+        <p>Enterprise-grade infrastructure supporting all industry applications</p>
+    </div>
+    
+    <div class="capabilities-grid">
+        <div class="capability-card">
+            <div class="capability-icon">🗄️</div>
+            <div class="capability-title">Centralized Client Database</div>
+            <div class="capability-description">Single source of truth for all customer information, accessible across every branch and touchpoint in your organization with industry-appropriate data structures.</div>
+        </div>
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update active nav link
-                updateActiveNavLink(targetId);
-            }
-        }
+        <div class="capability-card">
+            <div class="capability-icon">👤</div>
+            <div class="capability-title">Role-Based Staff Access</div>
+            <div class="capability-description">Granular permission controls ensure each team member sees only what they need, with full audit trails of all activities and industry-standard security protocols.</div>
+        </div>
 
-        // Scroll to top function
-        function scrollToTop() {
+        <div class="capability-card">
+            <div class="capability-icon">📱</div>
+            <div class="capability-title">Mobile Access for Field Staff</div>
+            <div class="capability-description">Full-featured mobile application enables field workers to manage jobs, communicate with customers, and update records from anywhere with offline capability.</div>
+        </div>
+
+        <div class="capability-card">
+            <div class="capability-icon">💰</div>
+            <div class="capability-title">Payment Tracking & Processing</div>
+            <div class="capability-description">Integrated payment workflows with support for multiple payment methods, partial payments, and automated reconciliation following industry billing practices.</div>
+        </div>
+
+        <div class="capability-card">
+            <div class="capability-icon">📊</div>
+            <div class="capability-title">Operational Reporting</div>
+            <div class="capability-description">Real-time dashboards and detailed reports provide insights into business performance, staff productivity, and financial metrics specific to your industry.</div>
+        </div>
+
+        <div class="capability-card">
+            <div class="capability-icon">🔒</div>
+            <div class="capability-title">Secure Data Isolation</div>
+            <div class="capability-description">Company-level data segregation ensures your information remains private and secure from other platform users with industry compliance certifications.</div>
+        </div>
+
+        <div class="capability-card">
+            <div class="capability-icon">📈</div>
+            <div class="capability-title">Scalable Infrastructure</div>
+            <div class="capability-description">Add branches, staff members, and customers without restructuring. Each application scales seamlessly as your business grows.</div>
+        </div>
+
+        <div class="capability-card">
+            <div class="capability-icon">🔄</div>
+            <div class="capability-title">Workflow Automation</div>
+            <div class="capability-description">Automate industry-specific repetitive tasks like invoice generation, payment reminders, and status notifications to save time and reduce errors.</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="cta-content">
+        <h2>See Your Industry-Specific Application</h2>
+        <p>Schedule a demo to see how we've built software specifically for your industry's unique operational needs</p>
+        
+        <form id="demoForm" class="demo-form">
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile number (optional)">
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your industry, business size, and current operational challenges" required></textarea>
+            </div>
+            <button type="submit" class="btn-large btn-white">Schedule Industry Demo</button>
+            <div id="formMessage" class="form-message"></div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 responseworks.in – Industry-Specific SaaS Applications for Service & Professional Businesses</p>
+</footer>
+
+<script>
+    // Smooth scroll function
+    function smoothScrollTo(event, targetId) {
+        event.preventDefault();
+        const target = document.getElementById(targetId);
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
             window.scrollTo({
-                top: 0,
+                top: offsetPosition,
                 behavior: 'smooth'
             });
-            updateActiveNavLink('home');
-        }
-
-        // Update active navigation link
-        function updateActiveNavLink(activeId) {
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + activeId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            const currentScroll = window.pageYOffset;
             
-            if (currentScroll > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            updateActiveNavLink(targetId);
+        }
+    }
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        updateActiveNavLink('home');
+    }
+
+    // Update active navigation link
+    function updateActiveNavLink(activeId) {
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + activeId) {
+                link.classList.add('active');
             }
-            
-            lastScroll = currentScroll;
         });
+    }
 
-        // Intersection observer for active navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateActiveNavLink(entry.target.id);
-                }
-            });
-        }, {
-            threshold: 0.3,
-            rootMargin: '-100px 0px -66%'
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Intersection observer for active navigation
+    const sections = document.querySelectorAll('section[id]');
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                updateActiveNavLink(entry.target.id);
+            }
         });
+    }, {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -66%'
+    });
 
-        sections.forEach(section => navObserver.observe(section));
+    sections.forEach(section => navObserver.observe(section));
 
-        // Intersection observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+    // Intersection observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.feature-card, .capability-card, .industry-category, .approach-box').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+
+    // Visual grid animation on hover
+    const visualItems = document.querySelectorAll('.visual-item');
+    visualItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Add character counter for message field
+    const messageField = document.getElementById('message');
+    const messageGroup = messageField.closest('.form-group');
+
+    // Create character counter element
+    const charCounter = document.createElement('div');
+    charCounter.style.cssText = 'font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; text-align: right;';
+    messageGroup.appendChild(charCounter);
+
+    // Update character count
+    messageField.addEventListener('input', () => {
+        const length = messageField.value.trim().length;
+        const remaining = 1000 - length;
+        const minRequired = 10;
+        
+        if (length < minRequired) {
+            charCounter.textContent = `${length}/${minRequired} characters (minimum ${minRequired - length} more needed)`;
+            charCounter.style.color = '#ef4444';
+        } else if (remaining < 100) {
+            charCounter.textContent = `${length}/1000 characters (${remaining} remaining)`;
+            charCounter.style.color = '#fbbf24';
+        } else {
+            charCounter.textContent = `${length}/1000 characters`;
+            charCounter.style.color = 'rgba(255, 255, 255, 0.6)';
+        }
+    });
+
+    // Trigger initial count
+    messageField.dispatchEvent(new Event('input'));
+
+    // Form submission - PRESERVED API LOGIC
+    document.getElementById('demoForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        
+        // Get trimmed values
+        const email = document.getElementById('email').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Client-side validation
+        if (message.length < 10) {
+            formMessage.textContent = `Message too short. You have ${message.length} characters, need at least 10 (${10 - message.length} more).`;
+            formMessage.className = 'form-message error';
+            return;
+        }
+        
+        if (message.length > 1000) {
+            formMessage.textContent = `Message too long. You have ${message.length} characters, maximum is 1000 (remove ${message.length - 1000}).`;
+            formMessage.className = 'form-message error';
+            return;
+        }
+        
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
+        
+        const formData = {
+            email: email,
+            mobile: mobile || null,
+            message: message
         };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        
+        try {
+            const response = await fetch('https://mailend.responseworks.in/api/demo-request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .spec-column').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-
-        // Visual grid animation on hover
-        const visualItems = document.querySelectorAll('.visual-item');
-        visualItems.forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Add character counter for message field
-        const messageField = document.getElementById('message');
-        const messageGroup = messageField.closest('.form-group');
-
-        // Create character counter element
-        const charCounter = document.createElement('div');
-        charCounter.style.cssText = 'font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; text-align: right;';
-        messageGroup.appendChild(charCounter);
-
-        // Update character count
-        messageField.addEventListener('input', () => {
-            const length = messageField.value.trim().length;
-            const remaining = 1000 - length;
-            const minRequired = 10;
             
-            if (length < minRequired) {
-                charCounter.textContent = `${length}/${minRequired} characters (minimum ${minRequired - length} more needed)`;
-                charCounter.style.color = '#ef4444';
-            } else if (remaining < 100) {
-                charCounter.textContent = `${length}/1000 characters (${remaining} remaining)`;
-                charCounter.style.color = '#fbbf24';
-            } else {
-                charCounter.textContent = `${length}/1000 characters`;
-                charCounter.style.color = 'rgba(255, 255, 255, 0.6)';
-            }
-        });
-
-        // Trigger initial count
-        messageField.dispatchEvent(new Event('input'));
-
-        // Form submission (API FUNCTIONALITY PRESERVED)
-        document.getElementById('demoForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+            const data = await response.json();
             
-            const formMessage = document.getElementById('formMessage');
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Get trimmed values
-            const email = document.getElementById('email').value.trim();
-            const mobile = document.getElementById('mobile').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // Client-side validation
-            if (message.length < 10) {
-                formMessage.textContent = `Message too short. You have ${message.length} characters, need at least 10 (${10 - message.length} more).`;
-                formMessage.className = 'form-message error';
-                return;
-            }
-            
-            if (message.length > 1000) {
-                formMessage.textContent = `Message too long. You have ${message.length} characters, maximum is 1000 (remove ${message.length - 1000}).`;
-                formMessage.className = 'form-message error';
-                return;
-            }
-            
-            // Disable button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            formMessage.textContent = '';
-            formMessage.className = 'form-message';
-            
-            const formData = {
-                email: email,
-                mobile: mobile || null,
-                message: message
-            };
-            
-            try {
-                const response = await fetch('https://mailend.responseworks.in/api/demo-request', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    formMessage.textContent = 'Thank you! We\'ll be in touch shortly.';
-                    formMessage.className = 'form-message success';e.target.reset();
+            if (response.ok) {
+                formMessage.textContent = 'Thank you! We\'ll be in touch shortly to schedule your industry-specific demo.';
+                formMessage.className = 'form-message success';
+                e.target.reset();
                 messageField.dispatchEvent(new Event('input')); // Reset counter
             } else {
                 // Handle validation errors with specific details
@@ -977,5 +1259,3 @@
         }
     });
 </script>
-</body>
-</html>
